@@ -24,7 +24,7 @@ module PokeApi
       @config ||= Configuration.new
     end
 
-    alias_method :configuration, :config
+    alias configuration config
 
     private
 
