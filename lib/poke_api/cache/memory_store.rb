@@ -1,6 +1,6 @@
 module PokeApi
   module Cache
-    # Thread-safe in-memory cache store implementation with basic read/write/fetch interface
+    # In-memory cache store implementation with basic read/write/fetch interface
     class MemoryStore
       def initialize
         @store = {}
