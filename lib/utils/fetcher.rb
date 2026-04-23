@@ -5,8 +5,7 @@ class Fetcher
       ErrorHandling.undefined_endpoint(endpoint) unless ENDPOINT_OBJECTS[endpoint]
 
       path = "#{BASE_URI}#{endpoint.to_s.tr('_', '-')}/#{sanitize_query(query)}"
-      data = call_uri(path)
-      data.merge(resource_name: endpoint)
+      call_uri(path).merge(resource_name: endpoint)
     end
 
     def call_uri(path)
