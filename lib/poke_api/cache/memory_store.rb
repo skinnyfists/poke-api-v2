@@ -1,21 +1,21 @@
 module PokeApi
   module Cache
+    # Thread-safe in-memory cache store implementation with basic read/write/fetch interface
     class MemoryStore
       def initialize
         @store = {}
-        @mutex = Mutex.new
       end
 
       def read(key)
-        @mutex.synchronize { @store[key] }
+        @store[key]
       end
 
       def write(key, value)
-        @mutex.synchronize { @store[key] = value }
+        @store[key] = value
       end
 
       def fetch(key)
-        @mutex.synchronize { @store[key] ||= yield }
+        @store[key] ||= yield
       end
     end
   end
