@@ -47,6 +47,10 @@ module PokeApi
         store.write(key, data)
       end
 
+      def data_is_aliasable?
+        data[:id] && data[:name]
+      end
+
       def write_alias
         store.write(alias_key_for(alternative_url), key)
       end
@@ -59,10 +63,6 @@ module PokeApi
           alternative_path = path == name ? id : name
           url.sub(PATH_REGEX, alternative_path)
         end
-      end
-
-      def data_is_aliasable?
-        data[:id] && data[:name]
       end
     end
   end
