@@ -2,7 +2,7 @@
 detectors:
   Attribute:
     enabled: true
-    exclude: []
+    exclude: [PokeApi::Configuration]
   BooleanParameter:
     enabled: true
     exclude: []
