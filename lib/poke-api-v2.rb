@@ -16,6 +16,16 @@ module PokeApi
       get(pokemon: query)
     end
 
+    def configure
+      yield config
+    end
+
+    def config
+      @config ||= Configuration.new
+    end
+
+    alias_method :configuration, :config
+
     private
 
     def sanitize_endpoints(unnamed_resource, endpoint_opts)
