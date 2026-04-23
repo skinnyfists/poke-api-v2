@@ -32,15 +32,15 @@ module PokeApi
         store.read(alt_key) if alt_key
       end
 
+      def alias_key_for(arg)
+        "poke_api/alias/#{arg}"
+      end
+
       def generate_and_cache_data
         @data = @block.call
         write_data
         write_alias if data_is_aliasable?
         data
-      end
-
-      def alias_key_for(arg)
-        "poke_api/alias/#{arg}"
       end
 
       def write_data
